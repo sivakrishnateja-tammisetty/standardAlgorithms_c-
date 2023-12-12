@@ -1,4 +1,4 @@
-for_each algorithm:
+* for_each algorithm:
 
   *The std::for_each algorithm is part of the C++ Standard Library and is defined in the <algorithm> header. 
   *It is used for iterating over a range and applying a given function or callable object to each element in that range.
@@ -29,3 +29,177 @@ return 0;
 o/p:
 1 4 9 16 25
 5 -> 15
+
+
+
+
+
+Eg:
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    
+vector<int> v{1,2,3,4,5};
+int cnt=0,sum=0;
+
+for_each(v.begin(),v.end(),[&](int x){++cnt;sum+=x;});
+cout<<cnt<<"->"<<sum<<endl;
+
+return 0;
+}
+o/p:
+5->15
+
+
+
+
+
+* copy:
+
+
+Eg:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    
+vector<int> v1{1,2,3,4,5};
+vector<int>v2(5,0);
+copy(v1.begin(),v1.end(),v2.begin());
+for(auto i:v2)
+{
+    cout<<i<<" ";
+}
+
+return 0;}
+o/p:1 2 3 4 5
+
+
+
+Eg:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    
+vector<int> v1{1,2,3,4,5};
+vector<int>v2;
+copy(v1.begin(),v1.end(),back_inserter(v2));
+for(auto i:v2)
+{
+    cout<<i<<" ";
+}
+
+return 0;
+}
+o/p: 1 2 3 4 5
+
+
+
+
+* reverse():
+
+Eg:
+#include <bits/stdc++.h>
+
+using namespace std;
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 7, 5, 6};
+    reverse(numbers.begin(),numbers.end());
+    for(auto i:numbers)
+    {
+        cout<<i<<" ";
+    }
+
+    return 0;
+}
+o/p: 6 5 7 3 2 1
+
+
+
+
+
+* rotate()
+
+
+Eg:
+The std::rotate function effectively shifts the elements in the range [first, last) so that the element at position middle becomes the new first element.
+
+#include <bits/stdc++.h>
+
+using namespace std;
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 7, 5, 6};
+    rotate(numbers.begin(),numbers.begin()+2,numbers.end());
+    for(auto i:numbers)
+    {
+        cout<<i<<" ";
+    }
+
+    return 0;
+}
+o/p: 3 7 5 6 1 2
+
+
+
+
+
+
+*fill()
+
+
+
+Eg:
+#include <bits/stdc++.h>
+
+using namespace std;
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 7, 5, 6};
+    fill(numbers.begin(),numbers.end(),7);
+    for(auto i:numbers)
+    {
+        cout<<i<<" ";
+    }
+
+    return 0;
+}
+o/p:7 7 7 7 7 7
+
+
+
+
+*iota() ->It generates elements by consecutively assigning the result of applying  the perfix operator ++ starting with an initial value.
+
+Eg:
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    std::vector<int> numbers (5,0);
+    iota(numbers.begin(),numbers.end(),4);
+    for(auto i:numbers)
+    {
+        cout<<i<<" ";
+    }
+
+    return 0;
+}
+o/p: 4 5 6 7 8
+
