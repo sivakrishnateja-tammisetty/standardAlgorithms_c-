@@ -1,0 +1,31 @@
+for_each algorithm:
+
+  *The std::for_each algorithm is part of the C++ Standard Library and is defined in the <algorithm> header. 
+  *It is used for iterating over a range and applying a given function or callable object to each element in that range.
+
+
+
+  Eg:
+  #include <bits/stdc++.h>
+
+using namespace std;
+void square(int x)
+{
+    cout<<x*x<<" ";
+}
+
+int main() {
+    
+vector<int> v{1,2,3,4,5};
+int cnt=0,sum=0;
+for_each(v.begin(),v.end(),[](int x){square(x);});
+cout<<endl;
+for_each(v.begin(),v.end(),[&cnt,&sum](int x){++cnt;sum+=x;});
+cout<<cnt<<"->"<<sum<<endl;
+
+return 0;
+}
+
+o/p:
+1 4 9 16 25
+5 -> 15
